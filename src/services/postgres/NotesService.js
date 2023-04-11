@@ -1,12 +1,14 @@
 const { Pool } = require("pg");
 const { mapDBToModel } = require("../../utils");
 const { nanoid } = require("nanoid");
+const autoBind = require("auto-bind");
 const InvariantError = require("./../../exceptions/InvariantError");
 const NotFoundError = require("./../../exceptions/NotFoundError");
 
 class NotesService {
   constructor() {
     this._pool = new Pool();
+    autoBind(this);
   }
 
   async addNote({ title, body, tags }) {
