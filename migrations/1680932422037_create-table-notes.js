@@ -30,5 +30,5 @@ exports.up = (pgm) => {
 };
 
 exports.down = (pgm) => {
-  pgmm.dropTable("notes");
+  pgm.dropTable("notes");
 };
